@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/malf"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Daily Lifes Obectives</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Title</ion-label>
+        <ion-input></ion-input>
+      </ion-list-header>
+      <ion-item>
+        <ion-icon name="calendar" slot='start'></ion-icon>
+        <ion-label position="stacked">For Date</ion-label>
+        <ion-datetime formControlName="date" displayFormat="DD MMM YYYY"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="heart" slot='start'></ion-icon>
+        <ion-label position="stacked">Love</ion-label>
+        <ion-input formControlName="love" type="text">
+        </ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-icon name="briefcase" slot='start'></ion-icon>
+        <ion-label position="stacked">Job</ion-label>
+        <ion-input formControlName="job" type="text">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="fitness" slot='start'></ion-icon>
+        <ion-label position="stacked">Phisical Healt</ion-label>
+        <ion-input formControlName="phisical" type="text">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="happy" slot='start'></ion-icon>
+        <ion-label position="stacked">Spirituly Healt</ion-label>
+        <ion-input formControlName="spiritulity" type="text">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="contacts" slot='start'></ion-icon>
+        <ion-label position="stacked">Social Connections</ion-label>
+        <ion-input formControlName="social" type="text">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="logo-usd" slot='start'></ion-icon>
+        <ion-label position="stacked">Material Status</ion-label>
+        <ion-input formControlName="material" type="text">
+        </ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="onSave(form)" color="primary" shape="full" expand="block">Save</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </form>
+
+</ion-content>
