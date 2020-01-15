@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { AngularFireModule } from '@angular/fire'
+import { AngularFirestoreModule } from '@angular/fire/firestore'
 
 
 
@@ -12,13 +14,15 @@ import { IonicModule } from '@ionic/angular';
     FormsModule,
     IonicModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFirestoreModule,
 
   ],
   exports: [
     FormsModule,
     IonicModule,
     FormsModule,
-    ReactiveFormsModule]
+    ReactiveFormsModule,
+    AngularFirestoreModule,]
 })
 export class SharedModule { }

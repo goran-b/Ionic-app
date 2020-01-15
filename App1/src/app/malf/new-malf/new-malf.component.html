@@ -10,10 +10,12 @@
 <ion-content>
   <form [formGroup]="form">
     <ion-list>
-      <ion-list-header>
-        <ion-label>Title</ion-label>
-        <ion-input></ion-input>
-      </ion-list-header>
+      <ion-item>
+        <ion-icon name="copy" slot='start'></ion-icon>
+        <ion-label position="stacked" color="primary">Title</ion-label>
+        <ion-input formControlName="title" type='text' size="12"></ion-input>
+      </ion-item>
+
       <ion-item>
         <ion-icon name="calendar" slot='start'></ion-icon>
         <ion-label position="stacked">For Date</ion-label>
@@ -22,8 +24,8 @@
 
       <ion-item>
         <ion-icon name="heart" slot='start'></ion-icon>
-        <ion-label position="stacked">Love</ion-label>
-        <ion-input formControlName="love" type="text">
+        <ion-label position="stacked">Relationship</ion-label>
+        <ion-input formControlName="relationship" type="text">
         </ion-input>
       </ion-item>
 
@@ -37,15 +39,15 @@
 
       <ion-item>
         <ion-icon name="fitness" slot='start'></ion-icon>
-        <ion-label position="stacked">Phisical Healt</ion-label>
-        <ion-input formControlName="phisical" type="text">
+        <ion-label position="stacked">Physical Health</ion-label>
+        <ion-input formControlName="physical" type="text">
         </ion-input>
       </ion-item>
 
       <ion-item>
         <ion-icon name="happy" slot='start'></ion-icon>
-        <ion-label position="stacked">Spirituly Healt</ion-label>
-        <ion-input formControlName="spiritulity" type="text">
+        <ion-label position="stacked">Spiritual Health</ion-label>
+        <ion-input formControlName="spiritual" type="text">
         </ion-input>
       </ion-item>
 
