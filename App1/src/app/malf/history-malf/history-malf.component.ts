@@ -20,7 +20,6 @@ export class HistoryMalfComponent implements OnInit {
         data.date=new Date(+data.date);
         return data
       });
-      console.log(this.malfs)
     })
  
   }

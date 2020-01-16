@@ -20,7 +20,6 @@ malfs: Malf[];
         data.date=new Date(+data.date);
         return data
       });
-      console.log(this.malfs)
     })
  
   }
