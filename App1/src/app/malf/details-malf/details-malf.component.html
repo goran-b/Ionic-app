@@ -1,3 +1,83 @@
-<p>
-  details-malf works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/malf"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Manage Life Note {{malf?.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-fab slot="end" horizontal="end">
+      <ion-fab-button color="light">
+        <ion-icon name="arrow-dropdown"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="bottom">
+        <ion-fab-button color="danger" (click)="delete(malf.id)">
+          <ion-icon name="close"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button color="warning" (click)="edit(malf.id)">
+          <ion-icon name="create"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+    <ion-item>
+      <ion-icon name="copy" slot='start'></ion-icon>
+      <ion-text>
+        <h3>{{malf?.title}}</h3>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="calendar" slot='start'></ion-icon>
+      <ion-text>
+        <h3>{{malf?.date|date:'dd.MM.yyyy'}}</h3>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="heart" slot='start'></ion-icon>
+      <ion-text>
+        <h3>{{malf?.relationship}}</h3>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="briefcase" slot='start'></ion-icon>
+      <ion-text>
+        <h3>{{malf?.job}}</h3>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="fitness" slot='start'></ion-icon>
+      <ion-text>
+        <h3>{{malf?.physical}}</h3>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="happy" slot='start'></ion-icon>
+      <ion-text>
+        <h3>{{malf?.spiritual}}</h3>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="contacts" slot='start'></ion-icon>
+      <ion-text>
+        <h3>{{malf?.social}}</h3>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="logo-usd" slot='start'></ion-icon>
+      <ion-text>
+        <h3>{{malf?.material}}</h3>
+      </ion-text>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

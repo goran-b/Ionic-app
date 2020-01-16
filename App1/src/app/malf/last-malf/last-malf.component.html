@@ -1,5 +1,23 @@
 <ion-list>
-  <ion-item>
+  <ion-fab slot="end" horizontal="end">
+    <ion-fab-button color="light">
+      <ion-icon name="arrow-dropdown"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="bottom">
+      <ion-fab-button color="danger" (click)="delete(malf.id)">
+        <ion-icon name="close"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="warning" (click)="edit(malf.id)">
+        <ion-icon name="create"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light" (click)="details(malf.id)">
+        <ion-icon name="open"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-item color="primary">
+
     <ion-icon name="copy" slot='start'></ion-icon>
     <ion-text>
       <h3>{{malf?.title}}</h3>
@@ -9,7 +27,7 @@
   <ion-item>
     <ion-icon name="calendar" slot='start'></ion-icon>
     <ion-text>
-      <h3>{{malf?.date}}</h3>
+      <h3>{{malf?.date|date:'dd MMM yyyy'}}</h3>
     </ion-text>
   </ion-item>
 

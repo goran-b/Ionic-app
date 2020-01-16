@@ -4,8 +4,11 @@
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
     <ion-title>Manage Life</ion-title>
-    <ion-button color="primary" slot="end" routerLink="./new">
+    <ion-button color="success" slot="end" routerLink="./new">
       <ion-icon name="add-circle-outline"></ion-icon>
+    </ion-button>
+    <ion-button color="primary" slot="end" routerLink="./history">
+      <ion-icon name="paper"></ion-icon>
     </ion-button>
   </ion-toolbar>
 </ion-header>
@@ -13,8 +16,13 @@
 
 <ion-content>
   <app-last-malf></app-last-malf>
+  <ion-item-divider color="dark">
+    <ion-label>
+      Previous Notes
+    </ion-label>
+  </ion-item-divider>
   <app-list-malf></app-list-malf>
 
-  <ion-button expand="block" routerLink="./history">A block button</ion-button>
+  <ion-button expand="block" routerLink="./history">All Manage Life Notes</ion-button>
 
 </ion-content>
