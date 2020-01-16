@@ -23,8 +23,12 @@ const routes: Routes = [
         component: HistoryMalfComponent
       },
       {
-        path: '/:id',
+        path: 'details/:id',
         component: DetailsMalfComponent
+      },
+      {
+        path: 'edit/:id',
+        component: NewMalfComponent
       }
     ]
 
