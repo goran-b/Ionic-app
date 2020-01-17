@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: 'malf',
     loadChildren: () => import('./malf/malf.module').then( m => m.MalfPageModule)
+  },  {
+    path: 'notes',
+    loadChildren: () => import('./notes/notes.module').then( m => m.NotesPageModule)
   },
+
 ];
 
 @NgModule({
