@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Note } from 'src/app/models/note.model';
+import { NotesService } from '../notes.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-note',
@@ -8,10 +10,26 @@ import { Note } from 'src/app/models/note.model';
 })
 export class ListNoteComponent implements OnInit {
 
-  notes: Note
-  constructor() { }
+  notes: Note[]
+  constructor(private noteService: NotesService, private router: Router) { }
 
-  ngOnInit() { }
-
+  ngOnInit() { 
+    this.noteService.getAllNotes().subscribe((r)=>{  
+      this.notes=r.map(a => {
+        const data = a.payload.doc.data() as Note;
+        data.id = a.payload.doc.id;
+        data.date=new Date(+data.date);
+        return data
+      });
+    })
+  }
+  details(id:String){
+    this.router.navigate(['notes/details/', id])
+  }
+  edit(id:String){
+    this.router.navigate(['notes/edit/', id])
+  }
+  delete(id:String){
+    this.noteService.delete(id)}
   
 }

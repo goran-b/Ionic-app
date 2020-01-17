@@ -1,4 +1,4 @@
-<ion-list>
+<ion-list lines="inset">
   <ion-fab slot="end" horizontal="end">
     <ion-fab-button color="light">
       <ion-icon name="arrow-dropdown"></ion-icon>
@@ -16,58 +16,57 @@
     </ion-fab-list>
   </ion-fab>
 
-  <ion-item color="primary">
-
+  <ion-list-header color="primary">
     <ion-icon name="copy" slot='start'></ion-icon>
     <ion-text>
       <h3>{{malf?.title}}</h3>
     </ion-text>
-  </ion-item>
+  </ion-list-header>
 
   <ion-item>
-    <ion-icon name="calendar" slot='start'></ion-icon>
+    <ion-icon name="calendar" slot='start' color="dark"></ion-icon>
     <ion-text>
       <h3>{{malf?.date|date:'dd MMM yyyy'}}</h3>
     </ion-text>
   </ion-item>
 
   <ion-item>
-    <ion-icon name="heart" slot='start'></ion-icon>
+    <ion-icon name="heart" slot='start' color="dark"></ion-icon>
     <ion-text>
       <h3>{{malf?.relationship}}</h3>
     </ion-text>
   </ion-item>
 
   <ion-item>
-    <ion-icon name="briefcase" slot='start'></ion-icon>
+    <ion-icon name="briefcase" slot='start' color="dark"></ion-icon>
     <ion-text>
       <h3>{{malf?.job}}</h3>
     </ion-text>
   </ion-item>
 
   <ion-item>
-    <ion-icon name="fitness" slot='start'></ion-icon>
+    <ion-icon name="fitness" slot='start' color="dark"></ion-icon>
     <ion-text>
       <h3>{{malf?.physical}}</h3>
     </ion-text>
   </ion-item>
 
   <ion-item>
-    <ion-icon name="happy" slot='start'></ion-icon>
+    <ion-icon name="happy" slot='start' color="dark"></ion-icon>
     <ion-text>
       <h3>{{malf?.spiritual}}</h3>
     </ion-text>
   </ion-item>
 
   <ion-item>
-    <ion-icon name="contacts" slot='start'></ion-icon>
+    <ion-icon name="contacts" slot='start' color="dark"></ion-icon>
     <ion-text>
       <h3>{{malf?.social}}</h3>
     </ion-text>
   </ion-item>
 
   <ion-item>
-    <ion-icon name="logo-usd" slot='start'></ion-icon>
+    <ion-icon name="logo-usd" slot='start' color="dark"></ion-icon>
     <ion-text>
       <h3>{{malf?.material}}</h3>
     </ion-text>

@@ -27,7 +27,7 @@ export class MalfService {
 
   save(value) {
     let data = Object.assign({}, value);
-    delete data.id;
+    delete data.id
     if (value.id == null) {
       this.firestore.collection('malfs').add(data);
     } else {
@@ -44,6 +44,11 @@ export class MalfService {
     });
     toast.present();
   }
+
+  delete(id: String) {
+    this.deleteWarning(id)
+  }
+
   async deleteWarning(id: String) {
     const alert = await this.alertController.create({
       header: 'Delete Note!',
@@ -67,14 +72,13 @@ export class MalfService {
 
     await alert.present();
   }
+  
   deleteInDatabase(id: String) {
     this.firestore.doc('malfs/' + id).delete()
     this.router.navigate(['malf'])
     this.presentToast('Your data have been deleted!')
   }
-  delete(id: String) {
-    this.deleteWarning(id)
-  }
+
 
   lastMalf() {
     let dateNow = `${this.dateStamp()}`

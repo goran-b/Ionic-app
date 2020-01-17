@@ -11,7 +11,10 @@ import { Malf } from 'src/app/models/malf.model';
 export class DetailsMalfComponent implements OnInit {
   malf: Malf
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute,private malfService:MalfService) { }
+  constructor(
+    private router: Router, 
+    private activatedRoute: ActivatedRoute,
+    private malfService:MalfService) { }
 
   ngOnInit() {
 
