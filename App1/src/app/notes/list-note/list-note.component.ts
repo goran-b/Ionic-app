@@ -14,15 +14,19 @@ export class ListNoteComponent implements OnInit {
   constructor(private noteService: NotesService, private router: Router) { }
 
   ngOnInit() { 
-    this.noteService.getAllNotes().subscribe((r)=>{  
+    this.noteService.getUserNotes().subscribe((r)=>{  
       this.notes=r.map(a => {
         const data = a.payload.doc.data() as Note;
         data.id = a.payload.doc.id;
         data.date=new Date(+data.date);
         return data
       });
+      this.notes.sort((a, b) => parseFloat(b.date.toString()) - parseFloat(a.date.toString()))
+      this.notes.forEach((data)=>
+      data.date=new Date(+data.date))
     })
   }
+
   details(id:String){
     this.router.navigate(['notes/details/', id])
   }

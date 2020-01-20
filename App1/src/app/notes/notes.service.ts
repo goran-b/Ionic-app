@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastController, AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { AuthService } from '../auth/services/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,14 @@ export class NotesService {
   constructor(private firestore: AngularFirestore,
     public toastController: ToastController,
     public alertController: AlertController,
-    private router: Router, private location: Location) { }
+    private router: Router,
+    private authService: AuthService, 
+    private location: Location) { }
 
   save(value) {
+    let author=this.authService.userId()
     let data = Object.assign({}, value);
+    data.author=author
     delete data.id
     if (value.id == null) {
       this.firestore.collection('notes').add(data);
@@ -29,7 +34,7 @@ export class NotesService {
   async presentToast(message: string) {
     const toast = await this.toastController.create({
       message,
-      duration: 2000
+      duration: 4000
     });
     toast.present();
   }
@@ -70,15 +75,14 @@ export class NotesService {
   getNotebyId(id: String) {
     return this.firestore.collection('notes').doc(`${id}`).get()
   }
-
-  getAllNotes() {
-    let dateNow = `${this.dateStamp()}`
-    return this.firestore.collection('notes', ref => ref.orderBy("date", "desc")).snapshotChanges()
+  
+  getUserNotes(){
+    let author=this.authService.userId()
+    return this.firestore.collection('notes', ref => ref.where("author", '==', author)).snapshotChanges()
   }
+
   dateStamp() {
     let todayDay = new Date().setHours(0, 0, 0, 0)
     return todayDay
   }
-
-
 }

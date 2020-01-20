@@ -1,0 +1,48 @@
+<form [formGroup]="form">
+
+  <ion-grid>
+    <ion-row color="primary" class="ion-justify-content-center">
+      <ion-col class="ion-align-self-center" size-md="6" size-lg="5" size-xs="12">
+        <div class="ion-padding">
+          <ion-item>
+            <ion-icon name="person" slot="start"></ion-icon>
+            <ion-input type="text" placeholder="Full name" #fullName formControlName="displayName" required
+              autocomplete="off"></ion-input>
+          </ion-item>
+
+          <span *ngIf="!fullName.valid && fullName.touched" class="help-block">
+            Enter full name!
+          </span>
+          <ion-item>
+            <ion-icon name="mail" slot="start"></ion-icon>
+            <ion-input type="email" placeholder="example@email.com" #email formControlName="email" required
+              autocomplete="off"></ion-input>
+          </ion-item>
+
+          <span *ngIf="!email.valid && email.touched" class="help-block">
+            Enter valid email!
+          </span>
+          <ion-item>
+            <ion-icon name="lock" slot="start"></ion-icon>
+            <ion-input formControlName="password" [type]="show ? 'text' : 'password'" #password placeholder="Password"
+              maxlenght="100" minlength="6" required autocomplete="off"></ion-input>
+            <ion-icon (click)="togglePassword()" [name]="show ? 'eye' : 'eye-off'"></ion-icon>
+          </ion-item>
+
+          <span *ngIf="!password.valid  && password.touched" class="help-block">
+            Enter valid password!
+          </span>
+        </div>
+
+        <div class="ion-padding">
+          <ion-button size="large" (click)="onSignup(form)" [disabled]="form.invalid" expand="block" color="primary">
+            Signup
+          </ion-button>
+        </div>
+        <ion-text class="ion-padding ion-text-center">
+          <p> Already have an account?<a [routerLink]="['/login']">Login</a></p>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>

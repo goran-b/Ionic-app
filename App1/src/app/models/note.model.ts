@@ -3,4 +3,5 @@ export class Note {
     title: String;
     date: Date;
     text: String;
+    author: String;
 }

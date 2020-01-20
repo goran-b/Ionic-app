@@ -29,6 +29,7 @@
     "cordova-android": "8.1.0",
     "core-js": "^2.5.4",
     "firebase": "^7.6.2",
+    "firebaseui": "^4.4.0",
     "rxjs": "~6.5.1",
     "serialize-javascript": "^2.1.2",
     "tslib": "^1.9.0",

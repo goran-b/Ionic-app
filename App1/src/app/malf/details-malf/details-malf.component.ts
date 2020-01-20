@@ -12,26 +12,27 @@ export class DetailsMalfComponent implements OnInit {
   malf: Malf
 
   constructor(
-    private router: Router, 
+    private router: Router,
     private activatedRoute: ActivatedRoute,
-    private malfService:MalfService) { }
+    private malfService: MalfService) { }
 
   ngOnInit() {
 
     this.activatedRoute.paramMap.subscribe(paramMap => {
       const id = paramMap.get('id');
-      this.malfService.getMalfbyId(id).subscribe((r)=>{
+      this.malfService.getMalfbyId(id).subscribe((r) => {
         const data = r.data() as Malf;
         data.id = r.id;
-        data.date=new Date(+data.date);
-        this.malf = data        
-      })     
+        data.date = new Date(+data.date);
+        this.malf = data
+      })
     })
   }
 
-  edit(id:String){
+  edit(id: String) {
     this.router.navigate(['malf/edit/', id])
   }
-  delete(id:String){
-    this.malfService.delete(id)}
+  delete(id: String) {
+    this.malfService.delete(id)
+  }
 }
