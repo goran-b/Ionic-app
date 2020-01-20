@@ -1,13 +1,27 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from './auth/services/auth-guard.service';
+import { LoggedinGuardService } from './auth/services/loggedin-guard.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
+  { path: 'login', redirectTo: 'auth', pathMatch: 'full' },
+  { path: 'home',
+  loadChildren: () => import('./home/home.module').then( m => m.HomePageModule), canActivate:[AuthGuardService], 
+  },
   {
     path: 'malf',
-    loadChildren: () => import('./malf/malf.module').then( m => m.MalfPageModule)
+    loadChildren: () => import('./malf/malf.module').then( m => m.MalfPageModule), canActivate:[AuthGuardService]
   },
+  {
+    path: 'notes',
+    loadChildren: () => import('./notes/notes.module').then( m => m.NotesPageModule), canActivate:[AuthGuardService]
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthPageModule), canActivate:[LoggedinGuardService]
+  },
+
 ];
 
 @NgModule({

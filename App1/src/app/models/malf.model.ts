@@ -8,4 +8,5 @@ export class Malf {
     physical: String;
     spiritual: String;
     material: String;
+    author: String;
 }

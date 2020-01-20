@@ -15,7 +15,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore'
     IonicModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFirestoreModule,
+    AngularFirestoreModule
 
   ],
   exports: [

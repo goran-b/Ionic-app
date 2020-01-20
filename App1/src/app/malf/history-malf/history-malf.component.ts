@@ -13,13 +13,15 @@ export class HistoryMalfComponent implements OnInit {
   constructor(private malfService:MalfService, private router: Router) { }
 
   ngOnInit() {
-    this.malfService.getAllMalfs().subscribe((r)=>{  
+    this.malfService.getUserMalfs().subscribe((r)=>{  
       this.malfs=r.map(a => {
         const data = a.payload.doc.data() as Malf;
         data.id = a.payload.doc.id;
-        data.date=new Date(+data.date);
         return data
       });
+      this.malfs.sort((a, b) => parseFloat(b.date.toString()) - parseFloat(a.date.toString()))
+      this.malfs.forEach((data)=>
+      data.date=new Date(+data.date))
     })
  
   }

@@ -13,13 +13,18 @@ malfs: Malf[];
   constructor(private malfService:MalfService, private router: Router) { }
 
   ngOnInit() {
-    this.malfService.getLastThreeMalfs().subscribe((r)=>{  
+    this.malfService.getUserMalfs().subscribe((r)=>{  
       this.malfs=r.map(a => {
         const data = a.payload.doc.data() as Malf;
         data.id = a.payload.doc.id;
-        data.date=new Date(+data.date);
         return data
       });
+      this.malfs.sort((a, b) => parseFloat(b.date.toString()) - parseFloat(a.date.toString()))
+      let todayDay = new Date().setHours(0, 0, 0, 0)
+      this.malfs=this.malfs.filter((m)=>parseFloat(m.date.toString())<(todayDay))
+      this.malfs=this.malfs.slice(0,3)
+      this.malfs.forEach((data)=>
+      data.date=new Date(+data.date))     
     })
  
   }
