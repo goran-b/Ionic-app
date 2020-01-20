@@ -8,8 +8,8 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  form: FormGroup;
-  show = false
+  public form: FormGroup;
+  public show = false
   constructor(
     private formBuilder: FormBuilder, 
     private authService: AuthService) { }

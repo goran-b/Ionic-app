@@ -6,6 +6,7 @@ import { AuthPage } from './auth.page';
 import { SharedModule } from '../shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
   ],
   declarations: [
     AuthPage,
-    LoginComponent, 
-    SignUpComponent]
+    LoginComponent,
+    SignUpComponent,
+    ProfileComponent]
 })
 export class AuthPageModule { }
