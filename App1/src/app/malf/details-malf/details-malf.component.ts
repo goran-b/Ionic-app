@@ -36,7 +36,6 @@ export class DetailsMalfComponent implements OnInit {
         data.id = r.id;
         data.date = new Date(+data.date);
         this.malf = Object.assign(data)
-        console.log(this.malf)
       })
     })
   }
