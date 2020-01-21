@@ -8,6 +8,11 @@
 </ion-header>
 
 <ion-content>
+  <ion-item-divider color="warning">
+    <ion-label>
+      <ion-text color="primary">All user's Notes</ion-text>
+    </ion-label>
+  </ion-item-divider>
   <ion-list>
     <ion-item-sliding *ngFor="let malf of malfs">
       <ion-item color="light" (click)="details(malf.id)">

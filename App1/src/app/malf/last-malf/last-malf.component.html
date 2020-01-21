@@ -1,9 +1,9 @@
 <ion-list lines="inset" *ngFor="let malf of malfs">
   <ion-fab slot="end" horizontal="end">
     <ion-fab-button color="light">
-      <ion-icon name="arrow-dropdown"></ion-icon>
+      <ion-icon name="arrow-dropleft"></ion-icon>
     </ion-fab-button>
-    <ion-fab-list side="bottom">
+    <ion-fab-list side="start">
       <ion-fab-button color="danger" (click)="delete(malf.id)">
         <ion-icon name="close"></ion-icon>
       </ion-fab-button>
@@ -19,7 +19,8 @@
   <ion-list-header color="primary">
     <ion-icon name="copy" slot='start'></ion-icon>
     <ion-text>
-      <h3>{{malf?.title}}</h3>
+      <h3 *ngIf='malf.title !== ""'>{{malf?.title}}</h3>
+      <h3 *ngIf='malf.title === "" && malf.date !==""'>{{malf?.date|date:'dd MMM yyyy'}}</h3>
     </ion-text>
   </ion-list-header>
 
@@ -30,42 +31,42 @@
     </ion-text>
   </ion-item>
 
-  <ion-item>
+  <ion-item *ngIf='malf.relationship !== ""'>
     <ion-icon name="heart" slot='start' color="dark"></ion-icon>
     <ion-text>
       <h3>{{malf?.relationship}}</h3>
     </ion-text>
   </ion-item>
 
-  <ion-item>
+  <ion-item *ngIf='malf.job !== ""'>
     <ion-icon name="briefcase" slot='start' color="dark"></ion-icon>
     <ion-text>
       <h3>{{malf?.job}}</h3>
     </ion-text>
   </ion-item>
 
-  <ion-item>
+  <ion-item *ngIf='malf.physical !== ""'>
     <ion-icon name="fitness" slot='start' color="dark"></ion-icon>
     <ion-text>
       <h3>{{malf?.physical}}</h3>
     </ion-text>
   </ion-item>
 
-  <ion-item>
+  <ion-item *ngIf='malf.spiritual !== ""'>
     <ion-icon name="happy" slot='start' color="dark"></ion-icon>
     <ion-text>
       <h3>{{malf?.spiritual}}</h3>
     </ion-text>
   </ion-item>
 
-  <ion-item>
+  <ion-item *ngIf='malf.social !== ""'>
     <ion-icon name="contacts" slot='start' color="dark"></ion-icon>
     <ion-text>
       <h3>{{malf?.social}}</h3>
     </ion-text>
   </ion-item>
 
-  <ion-item>
+  <ion-item *ngIf='malf.material !== ""'>
     <ion-icon name="logo-usd" slot='start' color="dark"></ion-icon>
     <ion-text>
       <h3>{{malf?.material}}</h3>
