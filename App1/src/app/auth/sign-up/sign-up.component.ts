@@ -8,8 +8,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
-  form: FormGroup;
-  passMatch: FormGroup
+  public form: FormGroup;
   show = false
 
   constructor(

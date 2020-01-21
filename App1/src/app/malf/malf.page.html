@@ -15,19 +15,23 @@
 
 
 <ion-content>
-  <ion-item-divider color="dark">
-    <ion-label>
-      Current Notes
-    </ion-label>
-  </ion-item-divider>
-  <app-last-malf></app-last-malf>
-  <ion-item-divider color="dark">
-    <ion-label>
-      Previous Notes
-    </ion-label>
-  </ion-item-divider>
-  <app-list-malf></app-list-malf>
-  <ion-item-divider color="dark">
+  <div *ngIf="todayMalfs.length!==0">
+    <ion-item-divider color="warning">
+      <ion-label>
+        <ion-text color="primary"> Current Notes</ion-text>
+      </ion-label>
+    </ion-item-divider>
+    <app-last-malf></app-last-malf>
+  </div>
+  <div *ngIf="listMalfs.length!==0">
+    <ion-item-divider color="warning">
+      <ion-label>
+        <ion-text color="primary"> Previous Notes</ion-text>
+      </ion-label>
+    </ion-item-divider>
+    <app-list-malf></app-list-malf>
+  </div>
+  <ion-item-divider color="warning">
     <ion-label>
     </ion-label>
   </ion-item-divider>

@@ -8,13 +8,18 @@
 </ion-header>
 
 <ion-content>
+  <ion-item-divider color="warning">
+    <ion-label>
+      <ion-text color="primary">Note's details</ion-text>
+    </ion-label>
+  </ion-item-divider>
   <ion-list>
 
     <ion-fab slot="end" horizontal="end">
       <ion-fab-button color="light">
         <ion-icon name="arrow-dropdown"></ion-icon>
       </ion-fab-button>
-      <ion-fab-list side="bottom">
+      <ion-fab-list side="start">
         <ion-fab-button color="danger" (click)="delete(note.id)">
           <ion-icon name="close"></ion-icon>
         </ion-fab-button>

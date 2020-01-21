@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./last-malf.component.scss'],
 })
 export class LastMalfComponent implements OnInit {
-
-  malfs: Malf[]
+  list = []
+  malfs = []
   constructor(private malfService: MalfService, private router: Router) { }
 
   ngOnInit() {
@@ -20,19 +20,14 @@ export class LastMalfComponent implements OnInit {
         data.id = a.payload.doc.id;
         return data
       });
-      this.malfs.sort((a, b) => parseFloat(b.date.toString()) - parseFloat(a.date.toString()))
       let todayDay = new Date().setHours(0, 0, 0, 0)
+      this.malfs = Object.values(this.malfs);
+      this.list = this.malfs
       this.malfs = this.malfs.filter((m) => parseFloat(m.date.toString()) == (todayDay))
       if (this.malfs.length == 0) {
-        this.malfs = r.map(a => {
-          const data = a.payload.doc.data() as Malf;
-          data.id = a.payload.doc.id;
-          return data
-        });
-        this.malfs.sort((a, b) => parseFloat(b.date.toString()) - parseFloat(a.date.toString()))
-        let todayDay = new Date().setHours(0, 0, 0, 0)
-        this.malfs = this.malfs.filter((m) => parseFloat(m.date.toString()) > (todayDay))
-        this.malfs.slice(0, 2)
+        this.list = this.list.filter((m) => parseFloat(m.date.toString()) > (todayDay))
+        this.list.sort((a, b) => parseFloat(a.date.toString()) - parseFloat(b.date.toString()))
+        this.malfs = this.list.slice(0, 2)
       }
       this.malfs.forEach((data) =>
         data.date = new Date(+data.date))

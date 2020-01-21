@@ -9,7 +9,18 @@ import { Malf } from 'src/app/models/malf.model';
   styleUrls: ['./details-malf.component.scss'],
 })
 export class DetailsMalfComponent implements OnInit {
-  malf: Malf
+  malf={
+    id: "",
+    title: "",
+    date: "",
+    relationship: "",
+    job: "",
+    social: "",
+    physical: "",
+    spiritual: "",
+    material: "",
+    author: ""
+}
 
   constructor(
     private router: Router,
@@ -24,7 +35,7 @@ export class DetailsMalfComponent implements OnInit {
         const data = r.data() as Malf;
         data.id = r.id;
         data.date = new Date(+data.date);
-        this.malf = data
+        this.malf = Object.assign(data)
       })
     })
   }
