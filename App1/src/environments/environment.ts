@@ -12,7 +12,8 @@ export const environment = {
     storageBucket: "tesapp-3db47.appspot.com",
     messagingSenderId: "1081005708916",
     appId: "1:1081005708916:web:b9891b12f23908e96d6321"
-  } 
+  },
+  apiUrl:"https://opentdb.com"
 };
 
 /*

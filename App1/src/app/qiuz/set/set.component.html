@@ -1,0 +1,30 @@
+<ion-list>
+  <ion-list-header color="light">Prepare Your Quiz</ion-list-header>
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-text>Number of Questions: {{val.value}}</ion-text>
+      <ion-range min="5" max="50" step="5" value="10" snaps color="danger" formControlName='number' #val>
+        <ion-icon slot="start" size="small" color="danger" name="help"></ion-icon>
+        <ion-icon slot="end" color="danger" name="help"></ion-icon>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Select Category:</ion-label>
+      <ion-select formControlName="category" value="9" okText="Okay" cancelText="Dismiss" interface="action-sheet">
+        <ion-select-option *ngFor='let c of categories' value="{{c.id}}">{{c?.name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Select Difficulty:</ion-label>
+      <ion-select formControlName="difficulty" value="any" okText="Okay" cancelText="Dismiss">
+        <ion-select-option value="any">Any</ion-select-option>
+        <ion-select-option value="easy">Easy</ion-select-option>
+        <ion-select-option value="medium">Medium</ion-select-option>
+        <ion-select-option value="hard">Hard</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </form>
+  <ion-button expand="block" (click)='start(form)'>Start</ion-button>
+</ion-list>

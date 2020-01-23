@@ -3,18 +3,18 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/malf"></ion-back-button>
     </ion-buttons>
-    <ion-title>Daily Lifes Obectives</ion-title>
+    <ion-title>New Daily Note</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-item-divider color="warning">
     <ion-label>
-      <ion-text color="primary"> New Note</ion-text>
+      <ion-text color="primary">Make New Note</ion-text>
     </ion-label>
   </ion-item-divider>
   <form [formGroup]="form">
-    <ion-list>
+    <ion-list ion-padding>
       <ion-item>
         <ion-icon name="copy" slot='start'></ion-icon>
         <ion-label position="stacked" color="primary">Title</ion-label>
@@ -29,7 +29,7 @@
 
       <ion-item>
         <ion-icon name="heart" slot='start'></ion-icon>
-        <ion-label position="stacked">Relationship</ion-label>
+        <ion-label position="stacked">Relationship/Family</ion-label>
         <ion-input formControlName="relationship" type="text">
         </ion-input>
       </ion-item>

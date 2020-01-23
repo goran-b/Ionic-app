@@ -3,18 +3,18 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/notes"></ion-back-button>
     </ion-buttons>
-    <ion-title>Notes</ion-title>
+    <ion-title>New Note</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-item-divider color="warning">
     <ion-label>
-      <ion-text color="primary">New Note</ion-text>
+      <ion-text color="primary">make New Note</ion-text>
     </ion-label>
   </ion-item-divider>
   <form [formGroup]="form">
-    <ion-list>
+    <ion-list ion-padding>
 
       <ion-item>
         <ion-icon name="checkmark" slot='start'></ion-icon>
