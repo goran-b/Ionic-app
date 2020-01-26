@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { FormGroup, FormBuilder, FormControl, FormArray } from '@angular/forms';
 import { Question } from 'src/app/models/question.model';
 import { Answer } from 'src/app/models/answer.model';
 import { QuestionDB } from 'src/app/models/questionFromDB.model';
+import { QiuzService } from '../qiuz.service';
 
 @Component({
   selector: 'app-test',
@@ -12,33 +11,37 @@ import { QuestionDB } from 'src/app/models/questionFromDB.model';
   styleUrls: ['./test.component.scss'],
 })
 export class TestComponent implements OnInit {
-  form: FormGroup
   questions = []
   qs = []
   data: any
-  dataForNumberOfQs: any
-  submited= false
-  numberOfQs
-  score=0
-  items: FormArray;
+  submited = false
+  subGroup: any
+  isCorrect: any
+  indexA: any
+  numberOfQs:any
+  answeredQs = 0
+  score = 0
 
-  constructor(private route: ActivatedRoute,
+  constructor(
     private location: Location,
-    private formBuilder: FormBuilder) {
-
-    this.dataForNumberOfQs = (this.location.getState())
-    this.numberOfQs = Object.values(this.dataForNumberOfQs)
-    this.numberOfQs = this.numberOfQs[1]
+    private quizService: QiuzService) {
   }
 
   ngOnInit() {
-    this.form = new FormGroup({
-      formArrayName: this.formBuilder.array([])
-    })
-    this.buildForm();
-    
     this.data = (this.location.getState())
-    this.qs = Object.values(this.data)
+    this.fillArrayForQs(this.data)
+    this.transformQs(this.data) 
+
+  }
+  fillArrayForQs(data){
+    this.numberOfQs = Object.values(data)
+    this.numberOfQs = this.numberOfQs[1]
+    this.subGroup = this.createSubmited(this.numberOfQs)
+    this.isCorrect = this.createSubmited(this.numberOfQs)
+    this.indexA = this.createA(this.numberOfQs)
+  }
+  transformQs(data){
+    this.qs = Object.values(data)
     this.qs = this.qs[0]
     this.qs = Object.values(this.qs)
     this.qs = this.qs[1]
@@ -65,37 +68,39 @@ export class TestComponent implements OnInit {
       adoptedQs.answers = adoptedQs.answers.sort(() => Math.random() - 0.5)
       this.questions.push(adoptedQs)
     })
-
   }
-  onSubmit(form) {
-    let val=[]
-    val=Object.values(form.value)
-    val=val[0] 
-    val.forEach((e)=>{
-      if(e.id=="true"){
-        this.score=this.score+1
-      }
-    })
-    this.submited=true
-  }
-
-  private buildForm() {
-    const controlArray = this.form.get('formArrayName') as FormArray;
-    const a=this.createFormControl(this.numberOfQs)
-    Object.keys(a).forEach((i) => {
-      controlArray.push(
-        this.formBuilder.group({
-          id: new FormControl({ })
-        })
-      )
-    })
-
-  }
-  private createFormControl(num) {
+ 
+  private createSubmited(n) {
     let group = []
-    for (let index = 0; index < num; index++) {
-      group.push(index.toString())
+    for (let index = 0; index < n; index++) {
+      group.push(false)
     }
     return group
   }
+  private createA(n) {
+    let group = []
+    for (let index = 0; index < n; index++) {
+      group.push(0)
+    }
+    return group
+  }
+
+  correctAnswer(q, n, c) {
+    this.subGroup[q] = true
+    this.isCorrect[q] = c
+    this.indexA[q] = n
+    this.answeredQs = this.answeredQs + 1
+    if (c == true) {
+      this.score = this.score + 1
+    }
+    if (this.answeredQs == this.numberOfQs) {
+      this.finish()
+    }
+
+  }
+  finish() {
+    this.quizService.AlertMessage(this.numberOfQs, this.score)
+    this.submited = true
+  }
+
 }

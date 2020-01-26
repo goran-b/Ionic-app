@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class ListNoteComponent implements OnInit {
 
   notes: Note[]
+  empty=true
   constructor(private noteService: NotesService, private router: Router) { }
 
   ngOnInit() { 
@@ -24,6 +25,9 @@ export class ListNoteComponent implements OnInit {
       this.notes.sort((a, b) => parseFloat(b.date.toString()) - parseFloat(a.date.toString()))
       this.notes.forEach((data)=>
       data.date=new Date(+data.date))
+      if(this.notes.length!=0){
+        this.empty=false;
+      }
     })
   }
 

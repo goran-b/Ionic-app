@@ -1,26 +1,20 @@
-<form [formGroup]='form'>
-  <div [formArrayName]="'formArrayName'">
-    <ion-list *ngFor="let q of questions; let i = index;">
-      <div [formGroupName]="i">
-        <ion-radio-group formControlName="id" allow-empty-selection>
-          <ion-list-header>
-            <ion-text>
-              <h3>{{q.question}}</h3>
-            </ion-text>
-
-          </ion-list-header>
-          <ion-item *ngFor="let a of q.answers; let i = index;"
-            [color]="submited ? (a.correct ? 'success' : 'undefined') : 'undefined'">
-            <ion-text [color]="submited? 'danger': 'undefined'">{{a.answer}}</ion-text>
-            <ion-radio [disabled]="submited" slot="end" checked="i===0" value="{{a.correct}}"></ion-radio>
-          </ion-item>
-        </ion-radio-group>
-      </div>
-    </ion-list>
-  </div>
-  <ion-text *ngIf="submited" color="primary">
-    <h3> You have {{score}}/{{numberOfQs}}</h3>
-  </ion-text>
-  <ion-button expand="block" [disabled]="submited" (click)="onSubmit(form)">Submit
+<ion-list *ngFor="let q of questions; let i = index;" ion-padding>
+  <ion-list-header>
+    <ion-text>
+      <h3>{{i+1}}. {{q.question}}</h3>
+    </ion-text>
+  </ion-list-header>
+  <ion-button slot="start" expand="full" ion-padding
+    [color]="subGroup[i] && y===indexA[i] ? ( isCorrect[i]==a.correct && a.correct ==true? 'success' : 'danger') : 'light'"
+    *ngFor="let a of q.answers;let y =index" [disabled]="subGroup[i]" (click)="correctAnswer(i,y,a.correct)">
+    <ion-text slot="start"> {{a.answer}}</ion-text>
   </ion-button>
-</form>
+</ion-list>
+<ion-item>
+  <ion-badge sticky slot="end" color="success">{{score}}/{{numberOfQs}}</ion-badge>
+</ion-item>
+<ion-text color="primary">
+
+  <h3> You have {{score}}/{{numberOfQs}} correct Answers!</h3>
+</ion-text>
+<ion-button *ngIf="!submited" expand="full" (click)="finish()">Finish test</ion-button>

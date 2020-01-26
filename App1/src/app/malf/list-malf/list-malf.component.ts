@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ListMalfComponent implements OnInit {
   malfs: Malf[];
+  empty=true
   constructor(private malfService: MalfService, private router: Router) { }
 
   ngOnInit() {
@@ -25,6 +26,9 @@ export class ListMalfComponent implements OnInit {
       this.malfs = this.malfs.slice(0, 3)
       this.malfs.forEach((data) =>
         data.date = new Date(+data.date))
+        if(this.malfs.length!=0){
+          this.empty=false;
+        }
     })
 
   }
