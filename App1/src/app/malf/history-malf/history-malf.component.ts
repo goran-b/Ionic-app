@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HistoryMalfComponent implements OnInit {
   malfs: Malf[];
+  empty=true
   constructor(private malfService:MalfService, private router: Router) { }
 
   ngOnInit() {
@@ -22,6 +23,9 @@ export class HistoryMalfComponent implements OnInit {
       this.malfs.sort((a, b) => parseFloat(b.date.toString()) - parseFloat(a.date.toString()))
       this.malfs.forEach((data)=>
       data.date=new Date(+data.date))
+      if(this.malfs.length!=0){
+        this.empty=false;
+      }
     })
  
   }

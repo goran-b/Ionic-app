@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 
 @Injectable({
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class QiuzService {
   public urlAddress: string = environment.apiUrl;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router,public alertController: AlertController) { }
 
 
   getCategories() {
@@ -24,5 +25,23 @@ export class QiuzService {
     ).subscribe((r) => {
       this.router.navigateByUrl('/quiz/test', { state: { r, n: value.number } })
     })
+  }
+  async AlertMessage( numberOfQs,correctQs) {
+    const alert = await this.alertController.create({
+      header: `You're completed Quiz!`,
+      message: `You have ${correctQs} correct answers of ${numberOfQs} questions!`,
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 }

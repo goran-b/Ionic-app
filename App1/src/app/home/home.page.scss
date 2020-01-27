@@ -23,20 +23,20 @@
 	width: 100%;
     height: 100%;
     display: flex;
-    padding-top: 25px;
+    padding: 15px;
     align-items: center;
 	flex-direction: column;
 	text-decoration: none;
 	font-size: 1rem;
 }
 .ion-activatable{
-	overflow: hidden;
+	
 	position: relative;
 }
 
 ion-icon{
 	font-size: 50px;
-	color: #0054A6;
+	color: #3880ff;
 }
 
 ion-card-title{
@@ -47,5 +47,7 @@ ion-card-title{
 }
 
 img{
-	padding: 50px;
+	height: 50px;
+	width:50px;
+	
 }
