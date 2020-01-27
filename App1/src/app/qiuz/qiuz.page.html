@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Quiz</ion-title>
+    <ion-button color="success" slot="end" routerLink="/quiz/set">
+      Set New Game<ion-icon name="add-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-divider color="warning">
+    <ion-label>
+      <ion-text color="primary">Quiz</ion-text>
+    </ion-label>
+  </ion-item-divider>
+  <router-outlet></router-outlet>
+</ion-content>

@@ -5,17 +5,18 @@
     </ion-buttons>
     <ion-title>Notes</ion-title>
     <ion-button color="success" slot="end" routerLink="./new">
-      <ion-icon name="add-circle-outline"></ion-icon>
+      New<ion-icon name="add-circle-outline"></ion-icon>
     </ion-button>
+    <ion-ripple-effect></ion-ripple-effect>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-item-divider color="warning">
+  <ion-item-divider color="warning" ion-padding>
     <ion-label>
-      <ion-text color="primary">All user's Notes</ion-text>
+      <ion-text color="primary">All Notes</ion-text>
     </ion-label>
   </ion-item-divider>
-  <app-list-note></app-list-note>
-
+  <app-list-note ion-padding></app-list-note>
+  <ion-ripple-effect></ion-ripple-effect>
 </ion-content>

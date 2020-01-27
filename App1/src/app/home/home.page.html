@@ -33,11 +33,22 @@
     <div class="main-selection-wrapper ion-activatable">
       <ion-item-divider color="warning">
         <ion-label>
-          <ion-text color="primary">Life Manager</ion-text>
+          <ion-text color="primary">Daily Planner</ion-text>
         </ion-label>
       </ion-item-divider>
       <a [routerLink]="['/malf']" class="main-selection">
-        <ion-icon name="compass"></ion-icon> Life Manager with daily Notes
+        <ion-icon name="compass"></ion-icon> Plan your day
+      </a>
+      <ion-ripple-effect></ion-ripple-effect>
+    </div>
+    <div class="main-selection-wrapper ion-activatable">
+      <ion-item-divider color="warning">
+        <ion-label>
+          <ion-text color="primary">Quiz</ion-text>
+        </ion-label>
+      </ion-item-divider>
+      <a (click)="toQuiz()" class="main-selection">
+        <ion-icon name="help-circle"></ion-icon> Test your knowledge
       </a>
       <ion-ripple-effect></ion-ripple-effect>
     </div>

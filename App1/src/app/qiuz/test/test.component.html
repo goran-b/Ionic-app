@@ -1,0 +1,26 @@
+<form [formGroup]='form'>
+  <div [formArrayName]="'formArrayName'">
+    <ion-list *ngFor="let q of questions; let i = index;">
+      <div [formGroupName]="i">
+        <ion-radio-group formControlName="id" allow-empty-selection>
+          <ion-list-header>
+            <ion-text>
+              <h3>{{q.question}}</h3>
+            </ion-text>
+
+          </ion-list-header>
+          <ion-item *ngFor="let a of q.answers; let i = index;"
+            [color]="submited ? (a.correct ? 'success' : 'undefined') : 'undefined'">
+            <ion-text [color]="submited? 'danger': 'undefined'">{{a.answer}}</ion-text>
+            <ion-radio [disabled]="submited" slot="end" checked="i===0" value="{{a.correct}}"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </div>
+    </ion-list>
+  </div>
+  <ion-text *ngIf="submited" color="primary">
+    <h3> You have {{score}}/{{numberOfQs}}</h3>
+  </ion-text>
+  <ion-button expand="block" [disabled]="submited" (click)="onSubmit(form)">Submit
+  </ion-button>
+</form>
