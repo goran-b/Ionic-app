@@ -1,18 +1,18 @@
+
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/note"></ion-back-button>
-    </ion-buttons>
-    <ion-title> Note {{note?.title}}</ion-title>
-  </ion-toolbar>
-</ion-header>
+  <div class="head">
+    <div class="title"><p class='title-text'>NOTE</p>
+      <ion-buttons class="back">
+        <ion-back-button defaultHref="/notes"></ion-back-button>
+      </ion-buttons></div>
+    <div class="bar">
+      <span>{{note?.title}}</span>
+    </div>
+  </div>
+  </ion-header>
 
 <ion-content>
-  <ion-item-divider color="warning">
-    <ion-label>
-      <ion-text color="primary">Note's details</ion-text>
-    </ion-label>
-  </ion-item-divider>
+  <div class="divider line glow">Note's details</div>
   <ion-list>
 
     <ion-fab slot="end" horizontal="end">

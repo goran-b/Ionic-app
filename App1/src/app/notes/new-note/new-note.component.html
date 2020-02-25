@@ -1,18 +1,18 @@
+
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/notes"></ion-back-button>
-    </ion-buttons>
-    <ion-title>New Note</ion-title>
-  </ion-toolbar>
-</ion-header>
+  <div class="head">
+    <div class="title"><p class='title-text'>NEW NOTE</p>
+      <ion-buttons class="back">
+        <ion-back-button defaultHref="/notes"></ion-back-button>
+      </ion-buttons></div>
+    <div class="bar">
+      <span>Record your Thoughts</span>
+    </div>
+  </div>
+  </ion-header>
 
 <ion-content>
-  <ion-item-divider color="warning">
-    <ion-label>
-      <ion-text color="primary">make New Note</ion-text>
-    </ion-label>
-  </ion-item-divider>
+  <div class="divider line glow">Make New Note</div>
   <form [formGroup]="form">
     <ion-list ion-padding>
 

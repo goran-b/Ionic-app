@@ -53,6 +53,10 @@ export class TestComponent implements OnInit {
         id: ''
       }
       adoptedQs.question = f.question
+      adoptedQs.question = adoptedQs.question.replace(/(&quot\;)/g,"\"")
+      adoptedQs.question = adoptedQs.question.replace(/(&ldquo\;)/g,"\"")
+      adoptedQs.question = adoptedQs.question.replace(/(&rdquo\;)/g,"\"")
+      adoptedQs.question = adoptedQs.question.replace(/(&#039\;)/g,"\"")
       adoptedQs.id = this.qs.indexOf(f).toString()
       f.incorrect_answers.forEach((e) => {
         let ans: Answer = { answer: "", correct: null }
@@ -77,6 +81,7 @@ export class TestComponent implements OnInit {
     }
     return group
   }
+
   private createA(n) {
     let group = []
     for (let index = 0; index < n; index++) {
@@ -96,8 +101,8 @@ export class TestComponent implements OnInit {
     if (this.answeredQs == this.numberOfQs) {
       this.finish()
     }
-
   }
+
   finish() {
     this.quizService.AlertMessage(this.numberOfQs, this.score)
     this.submited = true

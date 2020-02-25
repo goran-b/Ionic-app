@@ -20,7 +20,16 @@ export class HomePage implements OnInit {
   logout() {
     this.authService.logOut()
   }
+  toMalf(){
+    this.router.navigate(['malf'])
+  }
+
+  toNotes(){
+    this.router.navigate(['notes'])
+  }
+
   toQuiz(){
     this.router.navigate(['quiz'])
   }
+
 }
