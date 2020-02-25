@@ -18,7 +18,7 @@ export class TestComponent implements OnInit {
   subGroup: any
   isCorrect: any
   indexA: any
-  numberOfQs:any
+  numberOfQs: any
   answeredQs = 0
   score = 0
 
@@ -30,17 +30,17 @@ export class TestComponent implements OnInit {
   ngOnInit() {
     this.data = (this.location.getState())
     this.fillArrayForQs(this.data)
-    this.transformQs(this.data) 
+    this.transformQs(this.data)
 
   }
-  fillArrayForQs(data){
+  fillArrayForQs(data) {
     this.numberOfQs = Object.values(data)
     this.numberOfQs = this.numberOfQs[1]
     this.subGroup = this.createSubmited(this.numberOfQs)
     this.isCorrect = this.createSubmited(this.numberOfQs)
     this.indexA = this.createA(this.numberOfQs)
   }
-  transformQs(data){
+  transformQs(data) {
     this.qs = Object.values(data)
     this.qs = this.qs[0]
     this.qs = Object.values(this.qs)
@@ -53,19 +53,19 @@ export class TestComponent implements OnInit {
         id: ''
       }
       adoptedQs.question = f.question
-      adoptedQs.question = adoptedQs.question.replace(/(&quot\;)/g,"\"")
-      adoptedQs.question = adoptedQs.question.replace(/(&ldquo\;)/g,"\"")
-      adoptedQs.question = adoptedQs.question.replace(/(&rdquo\;)/g,"\"")
-      adoptedQs.question = adoptedQs.question.replace(/(&#039\;)/g,"\"")
+      adoptedQs.question=this.removeSpecialChars(adoptedQs.question)
+
       adoptedQs.id = this.qs.indexOf(f).toString()
       f.incorrect_answers.forEach((e) => {
         let ans: Answer = { answer: "", correct: null }
         ans.answer = e
+        ans.answer = this.removeSpecialChars(ans.answer)
         ans.correct = false
         adoptedQs.answers.push(ans)
       })
       let an: Answer = { answer: "", correct: null }
       an.answer = f.correct_answer
+      an.answer = this.removeSpecialChars(an.answer)
       adoptedQs.answers.shift();
       an.correct = true
       adoptedQs.answers.push(an)
@@ -73,7 +73,18 @@ export class TestComponent implements OnInit {
       this.questions.push(adoptedQs)
     })
   }
- 
+
+  removeSpecialChars(a: String) {
+    a = a.replace(/(&quot\;)/g, "\"")
+    a = a.replace(/(&ldquo\;)/g, "\"")
+    a = a.replace(/(&rsquo\;)/g, "\'")
+    a = a.replace(/(&rdquo\;)/g, "\"")
+    a = a.replace(/(&#039\;)/g, "\'")
+    a = a.replace(/(&amp\;)/g, "\&")
+    a = a.replace(/(&shy\;)/g, "\-")
+    return a
+  }
+
   private createSubmited(n) {
     let group = []
     for (let index = 0; index < n; index++) {
