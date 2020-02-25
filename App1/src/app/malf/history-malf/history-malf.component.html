@@ -1,18 +1,18 @@
+
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/malf"></ion-back-button>
-    </ion-buttons>
-    <ion-title>All Daily Planner's Notes</ion-title>
-  </ion-toolbar>
-</ion-header>
+  <div class="head">
+    <div class="title"><p class='title-text'>ALL DAILY <br>NOTES</p>
+      <ion-buttons class="back">
+        <ion-back-button defaultHref="/malf"></ion-back-button>
+      </ion-buttons></div>
+    <div class="bar">
+      <span>Check All</span>
+    </div>
+  </div>
+  </ion-header>
 
 <ion-content>
-  <ion-item-divider color="warning">
-    <ion-label>
-      <ion-text color="primary">Check All Daily Notes</ion-text>
-    </ion-label>
-  </ion-item-divider>
+  <div class="divider line glow">All your's notes</div>
   <ion-list>
     <ion-item-sliding *ngFor="let malf of malfs">
       <ion-item color="light" (click)="details(malf.id)">

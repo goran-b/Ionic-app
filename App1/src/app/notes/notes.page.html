@@ -1,22 +1,21 @@
+
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Notes</ion-title>
-    <ion-button color="success" slot="end" routerLink="./new">
-      New<ion-icon name="add-circle-outline"></ion-icon>
-    </ion-button>
-    <ion-ripple-effect></ion-ripple-effect>
-  </ion-toolbar>
-</ion-header>
+  <div class="head">
+    <div class="title"><p class='title-text'>NOTES</p>
+      <ion-buttons class="back">
+        <ion-back-button defaultHref="/home"></ion-back-button>
+      </ion-buttons></div>
+    <div class="bar">
+      <ion-button color="success" slot="end" routerLink="./new">
+        New<ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+  </ion-header>
 
 <ion-content>
-  <ion-item-divider color="warning" ion-padding>
-    <ion-label>
-      <ion-text color="primary">All Notes</ion-text>
-    </ion-label>
-  </ion-item-divider>
+  <div class="divider line glow">All Notes</div>
   <app-list-note ion-padding></app-list-note>
   <ion-ripple-effect></ion-ripple-effect>
 </ion-content>
+<app-footer></app-footer>

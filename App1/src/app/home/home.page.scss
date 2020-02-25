@@ -1,53 +1,115 @@
-
-.main-body{
-	width: 100%;
-	text-align: center;
-	height: 50%;
-}
-.main-selection-header{
-	text-align: center;
-	font-size: 1.1rem;
-	color: #3880ff;
-}
-.main-selection-wrapper{
-	width: calc(50% - 6px);
-	height: 50%;
-	display: inline-block;
-	border: 1px solid #3880ff;
-	margin: 2px;
-	border-radius: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-}
-.main-selection{
-	width: 100%;
-    height: 100%;
-    display: flex;
-    padding: 15px;
-    align-items: center;
-	flex-direction: column;
-	text-decoration: none;
-	font-size: 1rem;
-}
-.ion-activatable{
-	
+body{
 	position: relative;
 }
 
-ion-icon{
-	font-size: 50px;
-	color: #3880ff;
+.head{
+	position: absolute;
+	width: 100%;
+	height: 100px;
+	left: 0px;
+	top: 0px;
+	background: white;
+	box-shadow: 0px -4px 0px rgba(65, 130, 177, 0.65), 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+.title{	
+	width: 100%;
+	height: 100%;
+	background: #096EB8;
+	clip-path: polygon(0 1%, 55% 0, 43% 100%, 0% 100%);
 }
 
-ion-card-title{
-	color: #0054A6;
-	//position:center;
-	text-align: center;
-
+.title-text{
+	position: absolute;
+	height: 28px;
+	left: 20px;
+	top: 15px;
+	font-style: bold;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 22px;
+	color: #FFFFFF;
 }
 
-img{
-	height: 50px;
-	width:50px;
+.bar{
+	position: absolute;
+	display:block;
+	width: 42%;
+	height: 100px;
+	right: 0px;
+	top: 0px;
+    line-height: 75px;
+    font-size: 30px;
+}
+
+.btn{
+	position: absolute;
+	right: 20px;
+	top: 15px;
+}
+
+ion-icon{	
+	color: #096EB8;
+}
+
+ion-content{
+	top:100px;
+	bottom:75px;
+	position: relative;
+}
+
+.img{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-image: url(./../../assets/images/home.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.navbar{
+	top:50px;
+	position: absolute;
+	font-style: bold;
+	font-weight: 500;
+	font-size: 30px;
+	color: #FFFFFF;
+	padding: 10px;
+	right: 20px;
+	display: flex;
+	flex-direction: column;
+	text-align: right;
+	align-items: right;
+
+}
+.home:hover{
+	cursor: pointer;
+	text-decoration: underline;
+	-webkit-text-decoration-color: red; /* Safari */  
+	text-decoration-color: red;
+}
+.navbar{
+	span{
+		font-size: 16px;
+		color: rgba(208, 220, 228, 0.897);		
+	}	
+}
 	
+.logo{
+	position: absolute;
+	height: 28px;
+	font-style: bold;
+	font-weight: 500;
+	font-size: 33px;
+	line-height: 22px;
+	color: rgba(65, 130, 177, 0.65);
+	padding: 10px;
+	left: 20px;
+	font-size: 36px;
+}
+
+@media only screen and (min-width: 600px) {
+	.navbar{
+		top:0px;
+	}
 }

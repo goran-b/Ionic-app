@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { AngularFirestoreModule } from '@angular/fire/firestore'
+import { FooterComponent } from '../footer/footer.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [FooterComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -20,6 +21,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore'
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
-    AngularFirestoreModule,]
+    AngularFirestoreModule,FooterComponent]
 })
 export class SharedModule { }

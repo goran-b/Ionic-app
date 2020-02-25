@@ -1,0 +1,25 @@
+.footer{
+    position: absolute;
+    width: 100%;
+    height: 75px;
+    left: 0px;
+    bottom: 0px;
+    display: flex;
+    flex-wrap: nowrap;
+    background:rgba(65, 130, 177, 0.65);
+    
+}
+
+.button{
+    width:33%;
+    margin: 1px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+    background: #C4C4C4;
+    color:#096EB8; 
+}
+
+ion-icon{
+    color:#096EB8;
+}

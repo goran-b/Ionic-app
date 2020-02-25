@@ -1,57 +1,36 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      goran_b Ionic App
-    </ion-title>
-    <ion-button color="primary-contrast" slot="end" (click)="logout()">
-      <ion-icon name="power" size="small"></ion-icon>
-    </ion-button>
-  </ion-toolbar>
+  <div class="head">
+    <div class="title">
+      <p class='title-text'>HOME</p>
+    </div>
+    <div class="bar">
+      <div class='btn' (click)="logout()">
+        <ion-icon name="power"></ion-icon>
+      </div>
+    </div>
+  </div>
 </ion-header>
 
 <ion-content>
-  <ion-item-divider color="warning">
-    <ion-label>
-      <ion-text color="primary">Home page</ion-text>
-    </ion-label>
-  </ion-item-divider>
-
-  <h3 ion-padding class="main-selection-header"><img src="../../assets/icon/favicon.png" alt="logo" /> Welcome
-    {{userName}}</h3>
-  <div class="main-body">
-    <div class="main-selection-wrapper ion-activatable">
-      <ion-item-divider color="warning">
-        <ion-label>
-          <ion-text color="primary" slot="center">Notes</ion-text>
-        </ion-label>
-      </ion-item-divider>
-      <a [routerLink]="['/notes']" class="main-selection">
-        <ion-icon name="list-box" slot='center'></ion-icon>
-        <ion-text color="primary" slot='start'>Notes</ion-text>
-      </a>
-      <ion-ripple-effect></ion-ripple-effect>
-    </div>
-    <div class="main-selection-wrapper ion-activatable">
-      <ion-item-divider color="warning">
-        <ion-label>
-          <ion-text color="primary">Daily Planner</ion-text>
-        </ion-label>
-      </ion-item-divider>
-      <a [routerLink]="['/malf']" class="main-selection">
-        <ion-icon name="compass"></ion-icon> Plan your day
-      </a>
-      <ion-ripple-effect></ion-ripple-effect>
-    </div>
-    <div class="main-selection-wrapper ion-activatable">
-      <ion-item-divider color="warning">
-        <ion-label>
-          <ion-text color="primary">Quiz</ion-text>
-        </ion-label>
-      </ion-item-divider>
-      <a (click)="toQuiz()" class="main-selection">
-        <ion-icon name="help-circle"></ion-icon> Test your knowledge
-      </a>
-      <ion-ripple-effect></ion-ripple-effect>
+  <div class="img">
+      <div class="logo">
+        <p>Ionic<b>app</b></p>
+      </div>
+      <div class="navbar">
+      <div class="home note" (click)="toNotes()">
+        NOTES 
+        </div><span class="note">Record your Thoughts and use when you need them</span>
+      <br>
+      <div class="home malf" (click)="toMalf()">
+        MANAGE LIFE
+      </div>
+      <span class="malf">Plan your Day for every area in life</span>
+      <br>
+      <div class="home quiz" (click)="toQuiz()">
+        QUIZ
+      </div>
+      <span class="quiz">Test your knowledge </span>
     </div>
   </div>
 </ion-content>
+<app-footer></app-footer>

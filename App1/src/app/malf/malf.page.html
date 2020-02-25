@@ -1,43 +1,33 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Daily Planner</ion-title>
-    <ion-button color="success" slot="end" routerLink="./new">
-      New <ion-icon name="add-circle-outline"></ion-icon>
-    </ion-button>
-    <ion-button color="primary" slot="end" routerLink="./history">
-      All <ion-icon name="paper"></ion-icon>
-    </ion-button>
-    <ion-ripple-effect></ion-ripple-effect>
-  </ion-toolbar>
-</ion-header>
-
+  <div class="head">
+    <div class="title"><p class='title-text'>DAILY MANAGER</p>
+      <ion-buttons class="back">
+        <ion-back-button defaultHref="/home"></ion-back-button>
+      </ion-buttons></div>
+    <div class="bar">
+      <ion-button color="success" slot="end" routerLink="./new">
+        New <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="primary" slot="end" routerLink="./history">
+        All <ion-icon name="paper"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+  </ion-header>
 
 <ion-content>
   <div *ngIf="todayMalfs.length!==0">
-    <ion-item-divider color="warning" ion-padding>
-      <ion-label>
-        <ion-text color="primary"> Current Daily Note</ion-text>
-      </ion-label>
-    </ion-item-divider>
+    <div class="divider line glow">Current Daily Notes</div>
     <app-last-malf ion-padding></app-last-malf>
   </div>
   <div *ngIf="listMalfs.length!==0">
-    <ion-item-divider color="warning" ion-padding>
-      <ion-label>
-        <ion-text color="primary"> Previous Daily Notes</ion-text>
-      </ion-label>
-    </ion-item-divider>
+    <div class="divider line glow"> Previous Daily Notes</div>
     <app-list-malf ion-padding></app-list-malf>
   </div>
-  <ion-item-divider color="warning" ion-padding>
-    <ion-label>
-    </ion-label>
-  </ion-item-divider>
   <div>
     <ion-button expand="full" routerLink="./history" slot='start'>All Daily Notes</ion-button>
   </div>
   <ion-ripple-effect></ion-ripple-effect>
+ 
 </ion-content>
+ <app-footer></app-footer>

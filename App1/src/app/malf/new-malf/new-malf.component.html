@@ -1,18 +1,18 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/malf"></ion-back-button>
-    </ion-buttons>
-    <ion-title>New Daily Note</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+  <div class="head">
+    <div class="title"><p class='title-text'>NEW DAILY NOTE</p>
+      <ion-buttons class="back">
+        <ion-back-button defaultHref="/malf"></ion-back-button>
+      </ion-buttons></div>
+    <div class="bar">
+      <span>Manage your Day</span>
+    </div>
+  </div>
+  </ion-header>
+  
 <ion-content>
-  <ion-item-divider color="warning">
-    <ion-label>
-      <ion-text color="primary">Make New Note</ion-text>
-    </ion-label>
-  </ion-item-divider>
+  <div class="divider line glow">Make New Note</div>
+
   <form [formGroup]="form">
     <ion-list ion-padding>
       <ion-item>
